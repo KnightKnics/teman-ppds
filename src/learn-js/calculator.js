@@ -1,6 +1,7 @@
-import {find_numbers, find_operator} from "./operator.js"
+import {find_numbers, find_operator} from "./helper.js"
 
 function calculate(input_str) {
+    // remove the white space
     let components = input_str.split(" ")
     console.log(`components: ${components}`)
 
@@ -13,14 +14,14 @@ function calculate(input_str) {
     console.log(`numbers: ${numbers}`)
 
     // assign method based on operator
-    // let result = 0
-    // if (operator == "+") {
-    //     result = penjumlahan(input1, input2)
-    // } else {
-    //     result = pengurangan(input1, input2)
-    // }
-     return "end of the code"
+    let result = 0
+    for (const number of numbers) {
+        if (operator == "+") {
+            result = result + Number(number)
+        }
+    }
+     return result
 }
 
 let result = calculate("10 + 30")
-console.log(result)
+console.log(`the result is: ${result}`)
