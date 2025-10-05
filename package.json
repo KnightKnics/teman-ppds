@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/KnightKnics/teman-ppds/issues"
   },
-  "homepage": "https://github.com/KnightKnics/teman-ppds#readme"
+  "homepage": "https://github.com/KnightKnics/teman-ppds#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
