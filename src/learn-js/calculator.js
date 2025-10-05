@@ -1,5 +1,4 @@
-import pengurangan from "./pengurangan.js"
-import penjumlahan from "./penjumlahan.js"
+import {pengurangan, penjumlahan} from "./operator.js"
 
 function calculate(input1, input2, operator) {
     let result = 0
