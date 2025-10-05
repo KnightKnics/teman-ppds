@@ -1,15 +1,19 @@
+
 function find_operator(components) {
-    for (const component of components) {
-        if (component == "+") {
-            return component
+    let operators = []
+    for (const component of components) { 
+        if (component == "+" || component == "-" ||component == "*" ||component == "/" ){
+            operators.push(component)
+            
         }
     }
+    return operators
 }
 
-function find_numbers(components, operator) {
+function find_numbers(components, operators) {
     let result = []
     for (const component of components) {
-        if (component != operator) {
+        if (!operators.includes(component) ) {
             result.push(component)
         }
     }
