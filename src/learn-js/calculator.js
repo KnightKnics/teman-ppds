@@ -14,28 +14,30 @@ function calculate(input_str) {
     console.log(`numbers: ${numbers}`)
 
     // Multiplication + Division
-    for (let j = 0; j < operators.length; j++) {
-        if (operators[j] == "*"|| operators[j] =="/")  {
-        let result;
-            if (operators[j] === "*") {
-                 result = numbers[j] * numbers[j + 1];
+    for (let idx = 0; idx < operators.length; idx++) { // REV: if possible, use variable name that represent the context
+        let operator = operators[idx] // REV: if operator[idx] is being used multiple times, idxust init once, and reuse the same variable
+        if (operator == "*" || operator =="/")  {
+            let result = 0
+            if (operator == "*") {
+                result = numbers[idx] * numbers[idx + 1];
             } else {
-                result = numbers[j] / numbers[j + 1];
+                result = numbers[idx] / numbers[idx + 1];
             }
 
-        // Replace the two numbers with the result
-        numbers.splice(j, 2, result);
-        operators.splice(j, 1);
-        j--; // step back to recheck the current index
+            // Replace the two numbers with the result
+            numbers.splice(idx, 2, result);
+            operators.splice(idx, 1);
+            idx--; // step back to recheck the current index
+
+            // COMMENT: this pattern known as recursive and its better done in recursive function
         }
     }
 
-    // assign method based on operator
+    // Add + Subtract
     let result =Number(numbers[0])
      for (let i = 0; i < operators.length; i++) {
         if (operators[i] == "+") {
             result = result + Number(numbers[i+1])
-          
         }
             
         if (operators[i] == "-") {
@@ -45,5 +47,5 @@ function calculate(input_str) {
     return result   
  }
 
-let result = calculate("10 * 30 / 20")
+let result = calculate("10 + 20 + 30 + 50 * 10 * 10 * 10")
 console.log(`the result is: ${result}`)
