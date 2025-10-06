@@ -14,7 +14,7 @@ function calculate(input_str) {
     console.log(`numbers: ${numbers}`)
 
     // Multiplication + Division
-    for (let j = 0; j < operators.length; j++){
+    for (let j = 0; j < operators.length; j++) {
         if (operators[j] == "*"|| operators[j] =="/")  {
         let result;
             if (operators[j] === "*") {
@@ -23,33 +23,27 @@ function calculate(input_str) {
                 result = numbers[j] / numbers[j + 1];
             }
 
-      // Replace the two numbers with the result
-      numbers.splice(j, 2, result);
-      operators.splice(j, 1);
-
-      j--; // step back to recheck the current index
+        // Replace the two numbers with the result
+        numbers.splice(j, 2, result);
+        operators.splice(j, 1);
+        j--; // step back to recheck the current index
+        }
     }
-    
-}
 
     // assign method based on operator
     let result =Number(numbers[0])
      for (let i = 0; i < operators.length; i++) {
-                  
-              if (operators[i] == "+") {
+        if (operators[i] == "+") {
             result = result + Number(numbers[i+1])
           
         }
-            if (operators[i] == "-") {
-             result = result - Number(numbers[i+1])
-             
+            
+        if (operators[i] == "-") {
+            result = result - Number(numbers[i+1])
         }
-       
-
     }
-
-return result   
+    return result   
  }
 
-let result = calculate("10 + 30 / 30 / 40 + 50")
+let result = calculate("10 * 30 / 20")
 console.log(`the result is: ${result}`)
